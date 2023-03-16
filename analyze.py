@@ -52,13 +52,13 @@ for stp in stpFiles:
         s = file.read()
         stopWordList = stopWordList + word_tokenize(s)
 
-path = 'C:/Users/kmrya/Desktop/20211030 Test Assignment/readData/'
+path = '---Path to the directory where text files containing articles is present---'
 os.chdir(path)
 
 positiveWords = []
 negativeWords = []
-negpath = 'C:/Users/kmrya/Desktop/20211030 Test Assignment/MasterDictionary/negative-words.txt'
-pospath = 'C:/Users/kmrya/Desktop/20211030 Test Assignment/MasterDictionary/positive-words.txt'
+negpath = '---path to negative words txt file---'
+pospath = '---path to positive words txt file---'
 with open(pospath,'r') as file:
     s = file.read()
     fileText = word_tokenize(s)   
@@ -68,7 +68,7 @@ with open(negpath,'r') as file:
     fileText = word_tokenize(s)   
     negativeWords += fileText
 
-df = pd.read_excel('C:/Users/kmrya/Desktop/20211030 Test Assignment/Input.xlsx',sheet_name='Sheet1')
+df = pd.read_excel('---path to file ---/Input.xlsx',sheet_name='Sheet1')
 urlList = df['URL'].tolist()
 urlIdList = df['URL_ID'].tolist()
 
@@ -170,7 +170,7 @@ for filNam in os.listdir():
         
     outputList.append([urlid,url,posScore,negScore,polarityScore,subjectivityScore,sentiment,avgSentLen,percCompCount,fogIndex,avgSentLen,compWordCount,total_words,syllPerWord,pronCount,avgWorLen])
 
-path = 'C:/Users/kmrya/Desktop/20211030 Test Assignment/'
+path = '---path to home directory---'
 os.chdir(path)
 
 df = pd.DataFrame(outputList,columns= col)
